@@ -1,5 +1,4 @@
 import utils_parcial_a as utils
-
 print('Calculator TuttiCuadrati')
 
 rooms = int(input('How many rooms does the property have?\n'))
@@ -13,11 +12,15 @@ yard = input('Does the property have a yard? Enter "yes" or "no":\n').strip().lo
 outside_dimensions, garage = utils.outside_values(social_area,garage,yard)
 price ,value_meter= utils.pricing (inside_dimensions + outside_dimensions, garage)
 final_price = utils.discount(price)
-house_dictionary = {key: [value1, value2] for key, value1, value2 in zip(utils.name,utils.size,utils.list_values(value_meter))}
+string_values, regular_values = utils.list_values(value_meter) 
+
+house_dictionary = {key: [value1, value2] for key, value1, value2 in zip(utils.name,utils.size,string_values)}
 price_dictionary = {}
 
 price_dictionary['Inside'] = inside_dimensions * value_meter
 price_dictionary['Outside'] = outside_dimensions * value_meter
+
+utils.grafico_pie(utils.name,regular_values)
 
 print(final_price)
 print(house_dictionary)

@@ -1,11 +1,12 @@
 ## dimensions: Height rooms, Width rooms, Bathrooms dimensions,total room dimensions, total bathroom dimensions, total dimensions
 
 import functools
+import matplotlib.pyplot as mp
 
 name = []
 size = []
 price_part = []
-
+price_graph = []
 def list_names (number_elements,element):
     for i in range (number_elements):
         if number_elements > 1:
@@ -74,16 +75,18 @@ def list_values(value):
     for i in range(len(size)):
         if int(i) == len(size) - 1:
             price_part.append(f'${size[i]*5000000:,}')
+            price_graph.append(size[i] *5000000 )
         else:
             price_part.append(f'${size[i] * value:,}')
-    return price_part
+            price_graph.append(size[i] *value )
+    return price_part, price_graph
 
 def pricing (total_meters, garage):
     if total_meters > 100:
         value_meter = 9000000
     else:
         value_meter = 8000000
-    return ((total_meters * value_meter) + (garage * 500000) * 1.25) , value_meter 
+    return ((total_meters * value_meter) +(garage * 500000) * 1.25) , value_meter 
 
 def discount (price_nodiscount):        
     if price_nodiscount > 1000:
@@ -91,3 +94,9 @@ def discount (price_nodiscount):
     else:
         final_price = price_nodiscount
     return final_price
+
+def grafico_pie(labels, values):
+    fig, ax = mp.subplots()
+    ax.pie(values, labels=labels, autopct='%1.1f%%', startangle=90)
+    ax.axis('equal')
+    mp.show()
