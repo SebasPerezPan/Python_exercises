@@ -7,6 +7,7 @@ name = []
 size = []
 price_part = []
 price_graph = []
+
 def list_names (number_elements,element):
     for i in range (number_elements):
         if number_elements > 1:

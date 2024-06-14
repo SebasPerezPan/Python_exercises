@@ -15,13 +15,12 @@ final_price = utils.discount(price)
 string_values, regular_values = utils.list_values(value_meter) 
 
 house_dictionary = {key: [value1, value2] for key, value1, value2 in zip(utils.name,utils.size,string_values)}
-price_dictionary = {}
+# price_dictionary = {}
 
-price_dictionary['Inside'] = inside_dimensions * value_meter
-price_dictionary['Outside'] = outside_dimensions * value_meter
+# price_dictionary['Inside'] = inside_dimensions * value_meter
+# price_dictionary['Outside'] = outside_dimensions * value_meter
 
 utils.grafico_pie(utils.name,regular_values)
 
 print(final_price)
 print(house_dictionary)
-print(price_dictionary)
