@@ -2,7 +2,7 @@ categories = []
 count = 0
 values = []
 countries = 0
-with open('./datasets/world_population.csv', 'r') as reader:
+with open('world_population.csv', 'r') as reader:
     for line in reader:
         data = line.split(',')
         if data[4] == 'South America':
